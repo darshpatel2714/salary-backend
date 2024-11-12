@@ -8,7 +8,12 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors());
+
+// Allow requests only from your frontend's origin
+app.use(cors({
+  origin: 'https://salary-frontend.onrender.com'
+}));
+
 app.use(express.json());
 app.use('/api', salaryRoutes);
 
