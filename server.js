@@ -11,7 +11,9 @@ const app = express();
 
 // Allow requests only from your frontend's origin
 app.use(cors({
-  origin: 'https://salary-frontend.onrender.com'
+  origin: 'https://salary-frontend.onrender.com',
+   methods: ['GET', 'POST'],  // Allow the required methods
+  credentials: true 
 }));
 
 app.use(express.json());
